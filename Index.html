@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Third</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap");
+      * {
+        font-size: 65px;
+        font-family: "Poppins", sans-serif;
+      }
+      body {
+        background-color: royalblue;
+      }
+      input {
+        accent-color: black;
+      }
+    </style>
+    <script>
+      function find() {
+        event.preventDefault();
+        let name = document.getElementById("name");
+        let job = document.getElementById("job");
+        let ms = document.getElementById("ms");
+        let mba = document.getElementById("mba");
+        if (name.value == "") {
+          alert("Name cannot be empty");
+          ans.innerHTML = "";
+          name.value = "";
+          name.focus();
+          return;
+        } else if (name.value.trim() == "") {
+          alert("Name cannot be blank spaces");
+          ans.innerHTML = "";
+          name.value = "";
+          name.focus();
+          return;
+        } else if (!name.value.match(/^[A-Za-z ]+$/)) {
+          alert("Name should contain only alphabets");
+          ans.innerHTML = "";
+          name.value = "";
+          name.focus();
+          return;
+        }
+        let choice = "";
+        if (job.checked) {
+          choice = "JOB";
+        } else if (ms.checked) {
+          choice = "MS";
+        } else if (mbs.checked) {
+          choice = "MBA";
+        }
+        let msg = "Name is " + name.value + "Choice is " + choice;
+        ans.innerHTML = msg;
+      }
+    </script>
+  </head>
+  <body>
+    <center>
+      <h1 style="color: white">What is next step</h1>
+      <form onsubmit="find()">
+        <input type="text" placeholder="Enter your name" id="name" />
+        <br />
+        <input type="radio" id="job" name="a" />
+        <label for="job">Job</label>
+
+        <input type="radio" id="ms" name="a" /> <label for="ms">MS</label>
+        <input type="radio" id="mba" name="a" /> <label for="mba">MBA</label>
+        <br /><br />
+        <input type="submit" id="submit" />
+      </form>
+      <h2 id="ans"></h2>
+    </center>
+  </body>
+</html>
